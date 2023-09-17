@@ -95,7 +95,7 @@ const Home: NextPage = () => {
 
   console.log(`JourneyNFTs: ${JSON.stringify(journeyNFTs)}`);
   console.log(`\n${journeyNFTs.map((nft, index) => (
-    nft.tokenBoundAddress,
+    nft.tokenBoundAddress
   ))}`);
 
 
