@@ -20,10 +20,14 @@ type NFTData = {
   name: string;
   description: string;
   tokenBoundAddress: string;
-  tokenBoundNFTs: Array<{ imageUrl: string; name: string; }>;
+  tokenBoundNFTs: TokenBoundNFT[];//Array<{ imageUrl: string; name: string; }>;
 };
 
 
+type TokenBoundNFT = {
+  imageUrl: string;
+  name: string;
+};
 
 
 
@@ -84,9 +88,9 @@ const Home: NextPage = () => {
     description: nft.description,
     tokenBoundAddress: nft.tokenBoundAddress || "",  // Use default if not provided
     tokenBoundNFTs: Array.isArray(nft.tokenBoundNFTs) ? 
-      nft.tokenBoundNFTs.map(tbNft => ({
-        imageUrl: tbNft.image,
-        name: tbNft.image_name
+      nft.tokenBoundNFTs.map((tbNft: TokenBoundNFT) => ({
+        imageUrl: tbNft.imageUrl,
+        name: tbNft.name
       })) : nft.tokenBoundNFTs ? [{
         imageUrl: nft.tokenBoundNFTs.image,
         name: nft.tokenBoundNFTs.image_name
